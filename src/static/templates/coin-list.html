@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Criptomonedas</title>
+</head>
+<body>
+    <h1>Lista de Criptomonedas</h1>
+    <span id="loading-message" style="color:blue;">Cargando datos...</span>
+    <br><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Símbolo</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody id="coin-list-body"></tbody>
+    </table>
+
+    <script>
+        async function loadCoinList() {
+            try {
+                const res = await fetch('/api/v1/coins/list');
+                const data = await res.json();
+                const tbody = document.getElementById('coin-list-body');
+                tbody.innerHTML = '';
+                data.forEach(coin => {
+                    const row = `<tr>
+                        <td>${coin.id}</td>
+                        <td>${coin.symbol}</td>
+                        <td>${coin.name}</td>
+                    </tr>`;
+                    tbody.innerHTML += row;
+                });
+            } finally {
+                document.getElementById('loading-message').style.display = 'none';
+            }
+        }
+        window.onload = loadCoinList;
+    </script>
+</body>
+</html>

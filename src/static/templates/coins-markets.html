@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado de Criptomonedas</title>
+</head>
+<body>
+    <h1>Categorias</h1>
+    <button onclick="loadMarkets(true)">Click me</button>
+    <span id="loading-message" style="display:none; color:blue; margin-left:10px;">Cargando datos...</span>
+    <br><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody id="markets-body"></tbody>
+    </table>
+
+    <script>
+        async function loadMarkets(showMessage = false) {
+            if (showMessage) {
+                document.getElementById('loading-message').style.display = 'inline';
+            }
+            try {
+                const res = await fetch('/api/v1/categories');
+                const data = await res.json();
+                const tbody = document.getElementById('markets-body');
+                tbody.innerHTML = '';
+                data.forEach(categories => {
+                    const row = `<tr>
+                        <td>${categories.id}</td>
+                        <td>${categories.name}</td>
+                    </tr>`;
+                    tbody.innerHTML += row;
+                });
+            } finally {
+                if (showMessage) {
+                    document.getElementById('loading-message').style.display = 'none';
+                }
+            }
+        }
+        setInterval(loadMarkets, 5000); // Actualiza cada 5 segundos
+        window.onload = loadMarkets;
+    </script>
+</body>
+</html>

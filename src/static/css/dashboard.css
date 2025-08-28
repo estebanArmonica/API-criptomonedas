@@ -1,0 +1,60 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.signal-buy {
+    background-color: #d4edda;
+    border-left: 4px solid #28a745;
+}
+
+.signal-sell {
+    background-color: #f8d7da;
+    border-left: 4px solid #dc3545;
+}
+
+.signal-hold {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+}
+
+.prediction-card {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.opportunity-card {
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.opportunity-card:hover {
+    transform: translateY(-2px);
+}
+
+#priceChart {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+}
+
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}

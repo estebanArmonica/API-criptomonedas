@@ -1,0 +1,41 @@
+# Framework principal
+fastapi
+uvicorn
+
+# API de criptomonedas
+pycoingecko
+requests
+
+# Manejo de configuraciones
+pydantic
+pydantic-settings
+python-dotenv
+
+# Manejo de errores y reintentos
+tenacity
+
+# Emails y notificaciones
+python-multipart
+
+# Métricas y monitoreo
+prometheus-client
+prometheus-fastapi-instrumentator
+
+# Utilidades adicionales
+aiofiles
+jinja2
+python-multipart
+
+# Desarrollo y testing
+pytest
+pytest-asyncio
+httpx
+plotly 
+pandas 
+numpy 
+matplotlib
+
+# Para el frontend, necesitas incluir estos CDNs en tu HTML:
+# <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+# <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+# <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
